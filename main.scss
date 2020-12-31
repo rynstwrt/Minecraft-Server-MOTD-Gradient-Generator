@@ -1,3 +1,9 @@
+$color1: #212738;
+$color2: white;
+
+$background-color: $color1;
+$text-color: $color2;
+
 @font-face
 {
     font-family: 'Minecraft';
@@ -17,7 +23,7 @@ html, body
 
 body
 {
-    background-color: #212738;
+    background-color: $background-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,7 +59,7 @@ h1, h2
 textarea
 {
     flex: .5;
-    height: 1.5rem;
+    height: 3rem;
 }
 
 hr
@@ -78,7 +84,7 @@ hr
 #container
 {
     width: 100%;
-    color: white;
+    color: $text-color;
     text-align: center;
 }
 
