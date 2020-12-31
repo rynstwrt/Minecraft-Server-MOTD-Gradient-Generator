@@ -1,2 +1,4 @@
 # Minecraft Server MOTD Gradient Generator
- Greate a gradient for your Minecraft server's MOTD!
+Create a gradient for your Minecraft server's MOTD!
+
+# Use it here!: https://rynstwrt.github.io/Minecraft-Server-MOTD-Gradient-Generator/
