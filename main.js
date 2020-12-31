@@ -32,7 +32,7 @@ function createGradient()
         newMessage += hexToMCColorCode(hex) + chars[i];
     }
 
-    outputBox.value = sectionToUnicode(newMessage);
+    outputBox.value = newMessage.replaceAll("§", "\\u00a7");
     previewText.innerHTML = getPreviewText(newMessage);
 }
 
@@ -83,12 +83,6 @@ function hexToMCColorCode(hex)
     }
 
     return colorCode;
-}
-
-// convert § to \u00a7
-function sectionToUnicode(resultText)
-{
-    return resultText.replaceAll("§", "\\u00a7");
 }
 
 // convert §x§f§f§6§6§0§0A to <span style='color: #FF6600'>A</span>
