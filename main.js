@@ -108,7 +108,5 @@ function mcColorCodeToHex(colorCodes)
         newMessage += pair.replace("§", "");
     }
 
-    console.log(newMessage);
-
     return newMessage;
 }
