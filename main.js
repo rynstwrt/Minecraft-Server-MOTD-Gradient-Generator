@@ -1,6 +1,8 @@
 // get elements
 const color1Input = document.getElementById('color1');
+const color1Output = document.getElementById('color1result');
 const color2Input = document.getElementById('color2');
+const color2Output = document.getElementById('color2result');
 const textBox = document.getElementById('converttext');
 const outputBox = document.getElementById('outputtext');
 const previewText = document.getElementById('previewtext');
@@ -10,6 +12,9 @@ function createGradient()
 {
     const color1Hex = color1Input.value;
     const color2Hex = color2Input.value;
+
+    color1Output.textContent = "(" + color1Hex + ")";
+    color2Output.textContent = "(" + color2Hex + ")";;
 
     const rgb1 = hextoRGB(color1Hex);
     const rgb2 = hextoRGB(color2Hex);
@@ -27,9 +32,12 @@ function createGradient()
         newMessage += hexToMCColorCode(hex) + chars[i];
     }
 
-    outputBox.value = newMessage;
+    outputBox.value = sectionToUnicode(newMessage);
     previewText.innerHTML = getPreviewText(newMessage);
 }
+
+// initial call
+createGradient();
 
 // add listeners for the elements
 color1Input.addEventListener("input", createGradient);
@@ -75,6 +83,12 @@ function hexToMCColorCode(hex)
     }
 
     return colorCode;
+}
+
+// convert § to \u00a7
+function sectionToUnicode(resultText)
+{
+    return resultText.replaceAll("§", "\\u00a7");
 }
 
 // convert §x§f§f§6§6§0§0A to <span style='color: #FF6600'>A</span>
