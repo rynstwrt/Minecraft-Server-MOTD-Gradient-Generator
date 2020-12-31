@@ -32,9 +32,9 @@ function createGradient()
 }
 
 // add listeners for the elements
-color1Input.addEventListener("change", createGradient);
-color2Input.addEventListener("change", createGradient);
-textBox.addEventListener("keyup", createGradient);
+color1Input.addEventListener("input", createGradient);
+color2Input.addEventListener("input", createGradient);
+textBox.addEventListener("input", createGradient);
 
 // convert [255, 102, 0] to #FF6600
 function hextoRGB(hex)
