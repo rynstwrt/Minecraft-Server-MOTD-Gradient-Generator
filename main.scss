@@ -1,8 +1,10 @@
 $color1: #212738;
-$color2: white;
+$color2: #98a5cd;
 
 $background-color: $color1;
 $text-color: $color2;
+
+$vertical-spacing: 7.5vh;
 
 @font-face
 {
@@ -46,15 +48,16 @@ body
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 15vw;
+    padding: 0 10vw;
 }
 
 h1
 {
-    font-size: 2rem;
+    font-size: 3rem;
     text-transform: uppercase;
     font-weight: 600;
     font-family: "Montserrat", sans-serif;
+    margin-bottom: $vertical-spacing;
 }
 
 h2
@@ -77,13 +80,8 @@ h1, h2
 textarea
 {
     flex: .5;
-    height: 3rem;
-}
-
-hr
-{
-    visibility: hidden;
-    margin-bottom: 5vh;
+    width: 20vw;
+    height: 10vh;
 }
 
 #container
@@ -97,11 +95,16 @@ hr
         width: 100%;
         display: flex;
         align-items: center;
-        margin: 1.5rem 0;
+        margin: 2rem 0;
 
         & > *
         {
             margin: 0 .5rem;
+        }
+
+        &:nth-of-type(4)
+        {
+            margin-top: $vertical-spacing;
         }
     }
 }

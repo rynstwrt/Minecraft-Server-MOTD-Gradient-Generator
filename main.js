@@ -6,6 +6,7 @@ const color2Output = document.getElementById("color2result");
 const boldCheckbox = document.getElementById("bold");
 const italicCheckbox = document.getElementById("italic");
 const underlinedCheckbox = document.getElementById("underlined");
+const useAmpersandCheckbox = document.getElementById("useampersand");
 const useSectionCheckbox = document.getElementById("usesection");
 const textBox = document.getElementById("converttext");
 const outputBox = document.getElementById("outputtext");
@@ -55,6 +56,18 @@ function createGradient()
     }
 
     outputBox.value = (useSectionCheckbox.checked) ? newMessage : newMessage.replaceAll("§", "\\u00a7");
+    if (useAmpersandCheckbox.checked)
+    {
+        outputBox.value = newMessage.replaceAll("§", "&");
+    }
+    else if (useSectionCheckbox.checked)
+    {
+        outputBox.value = newMessage;
+    }
+    else
+    {
+        outputBox.value = newMessage.replaceAll("§", "\\u00a7")
+    }
     previewText.innerHTML = getPreviewText(newMessage);
 }
 
@@ -68,7 +81,16 @@ textBox.addEventListener("input", createGradient);
 boldCheckbox.addEventListener("input", createGradient);
 italicCheckbox.addEventListener("input", createGradient);
 underlinedCheckbox.addEventListener("input", createGradient);
-useSectionCheckbox.addEventListener("input", createGradient);
+useSectionCheckbox.addEventListener("input", () =>
+{
+    useAmpersandCheckbox.checked = false;
+    createGradient();
+});
+useAmpersandCheckbox.addEventListener("input", () =>
+{
+    useSectionCheckbox.checked = false;
+    createGradient();
+});
 
 // convert [255, 102, 0] to #FF6600
 function hextoRGB(hex)

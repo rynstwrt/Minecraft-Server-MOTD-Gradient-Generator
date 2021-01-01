@@ -11,28 +11,24 @@
     </head>
     <body>
         <div id="container">
-            <h1>MC Server MOTD Gradient Generator</h1>
-
-            <hr />
+            <h1>Minecraft Server MOTD Gradient Generator</h1>
 
             <div class="row">
                 <h2>Color 1: </h2>
                 <input id="color1" type="color" value="#FF6600" />
-                <h2 id="color1result"></h2>
+                <h2 id="color1result" class='sublabel'></h2>
             </div>
 
             <div class="row">
                 <h2>Color 2: </h2>
                 <input id="color2" type="color" value="#FF00FF" />
-                <h2 id="color2result"></h2>
+                <h2 id="color2result" class='sublabel'></h2>
             </div>
 
             <div class="row">
                 <h2>Text to convert: </h2>
                 <textarea id="converttext">Enter your text here!</textarea>
             </div>
-
-            <hr />
 
             <div class="row">
                 <h2>Result: </h2>
@@ -51,8 +47,10 @@
                         <h2>Underlined</h2>
                     </div>
                     <div class="row">
+                        <input id="useampersand" type="checkbox" />
+                        <h2>Use '&'</h2>
                         <input id="usesection" type="checkbox" />
-                        <h2>Use "§"</h2>
+                        <h2>Use '§'</h2>
                     </div>
                 </div>
             </div>
