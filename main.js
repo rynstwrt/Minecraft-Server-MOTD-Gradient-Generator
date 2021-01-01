@@ -5,6 +5,7 @@ const color2Input = document.getElementById("color2");
 const color2Output = document.getElementById("color2result");
 const boldCheckbox = document.getElementById("bold");
 const italicCheckbox = document.getElementById("italic");
+const underlinedCheckbox = document.getElementById("underlined");
 const useSectionCheckbox = document.getElementById("usesection");
 const textBox = document.getElementById("converttext");
 const outputBox = document.getElementById("outputtext");
@@ -36,6 +37,7 @@ function createGradient()
 
         if (boldCheckbox.checked) thingsToAppend.push("§l");
         if (italicCheckbox.checked) thingsToAppend.push("§o");
+        if (underlinedCheckbox.checked) thingsToAppend.push("§n");
 
         if (boldCheckbox.checked && italicCheckbox.checked)
             previewText.style.fontFamily = "Minecraft Bold Italic"
@@ -65,6 +67,7 @@ color2Input.addEventListener("input", createGradient);
 textBox.addEventListener("input", createGradient);
 boldCheckbox.addEventListener("input", createGradient);
 italicCheckbox.addEventListener("input", createGradient);
+underlinedCheckbox.addEventListener("input", createGradient);
 useSectionCheckbox.addEventListener("input", createGradient);
 
 // convert [255, 102, 0] to #FF6600
@@ -111,18 +114,21 @@ function hexToMCColorCode(hex)
 // convert §x§f§f§6§6§0§0&l&oA to <span style="color: #FF6600">A</span>
 function getPreviewText(resultText)
 {
-    var message = resultText.replaceAll("§l", "");
-    message = message.replaceAll("§o", "");
+    resultText = resultText.replaceAll("§l", "");
+    resultText = resultText.replaceAll("§o", "");
+    resultText = resultText.replaceAll("§n", "");
 
-    const array = message.split(/(§x(?:§[\d\w]{1}){6})/g);
+    const array = resultText.split(/(§x(?:§[\d\w]{1}){6})/g);
 
     var newMessage = "";
     for (var i = 2; i < array.length; i = i + 2)
     {
         const char = array[i];
         const color = array[i - 1];
+        const hex = mcColorCodeToHex(color);
+        const spanStyle = (underlinedCheckbox.checked) ? "color: " + hex + "; text-decoration: underline; text-decoration-color: " + hex : "color: " + hex;
 
-        newMessage += "<span style=\"color: " + mcColorCodeToHex(color) + "\">";
+        newMessage += "<span style=\"" + spanStyle + "\">";
         newMessage += char;
         newMessage += "</span>";
     }
