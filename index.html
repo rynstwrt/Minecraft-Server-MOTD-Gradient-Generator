@@ -9,38 +9,52 @@
         <title>MOTD Gradient Generator</title>
     </head>
     <body>
-        <div id='container'>
+        <div id="container">
             <h1>MC Server MOTD Gradient Generator</h1>
 
             <hr />
 
-            <div class='row'>
+            <div class="row">
                 <h2>Color 1: </h2>
-                <input id='color1' type='color' value='#FF6600' />
-                <h2 id='color1result'></h2>
+                <input id="color1" type="color" value="#FF6600" />
+                <h2 id="color1result"></h2>
             </div>
 
-            <div class='row'>
+            <div class="row">
                 <h2>Color 2: </h2>
-                <input id='color2' type='color' value='#FF00FF' />
-                <h2 id='color2result'></h2>
+                <input id="color2" type="color" value="#FF00FF" />
+                <h2 id="color2result"></h2>
             </div>
 
-            <div class='row'>
+            <div class="row">
                 <h2>Text to convert: </h2>
-                <textarea id='converttext'>Enter your text here!</textarea>
+                <textarea id="converttext">Enter your text here!</textarea>
             </div>
 
             <hr />
 
-            <div class='row'>
+            <div class="row">
                 <h2>Result: </h2>
-                <textarea id='outputtext' readonly></textarea>
+                <textarea id="outputtext" readonly></textarea>
+                <div id="modifiers">
+                    <div class="row">
+                        <input id="bold" type="checkbox" />
+                        <h2>Bold</h2>
+                    </div>
+                    <div class="row">
+                        <input id="italic" type="checkbox" />
+                        <h2>Italic</h2>
+                    </div>
+                    <div class="row">
+                        <input id="usesection" type="checkbox" />
+                        <h2>Use "§"</h2>
+                    </div>
+                </div>
             </div>
 
-            <div class='row'>
+            <div class="row">
                 <h2>Preview: </h2>
-                <h2 id='previewtext'></h2>
+                <h2 id="previewtext"></h2>
             </div>
         </div>
 

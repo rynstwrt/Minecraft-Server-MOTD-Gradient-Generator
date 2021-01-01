@@ -1,11 +1,14 @@
 // get elements
-const color1Input = document.getElementById('color1');
-const color1Output = document.getElementById('color1result');
-const color2Input = document.getElementById('color2');
-const color2Output = document.getElementById('color2result');
-const textBox = document.getElementById('converttext');
-const outputBox = document.getElementById('outputtext');
-const previewText = document.getElementById('previewtext');
+const color1Input = document.getElementById("color1");
+const color1Output = document.getElementById("color1result");
+const color2Input = document.getElementById("color2");
+const color2Output = document.getElementById("color2result");
+const boldCheckbox = document.getElementById("bold");
+const italicCheckbox = document.getElementById("italic");
+const useSectionCheckbox = document.getElementById("usesection");
+const textBox = document.getElementById("converttext");
+const outputBox = document.getElementById("outputtext");
+const previewText = document.getElementById("previewtext");
 
 // "draw" everything on the screen
 function createGradient()
@@ -19,7 +22,7 @@ function createGradient()
     const rgb1 = hextoRGB(color1Hex);
     const rgb2 = hextoRGB(color2Hex);
 
-    const chars = textBox.value.split('');
+    const chars = textBox.value.split("");
 
     var newMessage = "";
     for (var i = 0; i < chars.length; ++i)
@@ -29,10 +32,27 @@ function createGradient()
 
         const hex = rgbToHex(currentColor[0], currentColor[1], currentColor[2]);
 
-        newMessage += hexToMCColorCode(hex) + chars[i];
+        const thingsToAppend = [hexToMCColorCode(hex)];
+
+        if (boldCheckbox.checked) thingsToAppend.push("§l");
+        if (italicCheckbox.checked) thingsToAppend.push("§o");
+
+        if (boldCheckbox.checked && italicCheckbox.checked)
+            previewText.style.fontFamily = "Minecraft Bold Italic"
+        else if (boldCheckbox.checked)
+            previewText.style.fontFamily = "Minecraft Bold"
+        else if (italicCheckbox.checked)
+            previewText.style.fontFamily = "Minecraft Italic"
+        else
+            previewText.style.fontFamily = "Minecraft Regular"
+
+        for (var index in thingsToAppend)
+            newMessage += thingsToAppend[index];
+
+        newMessage += chars[i];
     }
 
-    outputBox.value = newMessage.replaceAll("§", "\\u00a7");
+    outputBox.value = (useSectionCheckbox.checked) ? newMessage : newMessage.replaceAll("§", "\\u00a7");
     previewText.innerHTML = getPreviewText(newMessage);
 }
 
@@ -43,6 +63,9 @@ createGradient();
 color1Input.addEventListener("input", createGradient);
 color2Input.addEventListener("input", createGradient);
 textBox.addEventListener("input", createGradient);
+boldCheckbox.addEventListener("input", createGradient);
+italicCheckbox.addEventListener("input", createGradient);
+useSectionCheckbox.addEventListener("input", createGradient);
 
 // convert [255, 102, 0] to #FF6600
 function hextoRGB(hex)
@@ -74,21 +97,24 @@ function interpolateRGB(rgb1, rgb2, factor)
 // convert #FF6600 to §x§f§f§6§6§0§0
 function hexToMCColorCode(hex)
 {
-    const array = hex.substring(1).split('');
+    const array = hex.substring(1).split("");
 
     var colorCode = "§x";
     for (var index in array)
     {
-        colorCode += '§' + array[index];
+        colorCode += "§" + array[index];
     }
 
     return colorCode;
 }
 
-// convert §x§f§f§6§6§0§0A to <span style='color: #FF6600'>A</span>
+// convert §x§f§f§6§6§0§0&l&oA to <span style="color: #FF6600">A</span>
 function getPreviewText(resultText)
 {
-    const array = resultText.split(/(§x(?:§[\d\w]{1}){6})/g);
+    var message = resultText.replaceAll("§l", "");
+    message = message.replaceAll("§o", "");
+
+    const array = message.split(/(§x(?:§[\d\w]{1}){6})/g);
 
     var newMessage = "";
     for (var i = 2; i < array.length; i = i + 2)
@@ -96,7 +122,7 @@ function getPreviewText(resultText)
         const char = array[i];
         const color = array[i - 1];
 
-        newMessage += "<span style='color: " + mcColorCodeToHex(color) + "'>";
+        newMessage += "<span style=\"color: " + mcColorCodeToHex(color) + "\">";
         newMessage += char;
         newMessage += "</span>";
     }
