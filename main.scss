@@ -1,10 +1,13 @@
-$color1: #212738;
-$color2: #98a5cd;
+$color1: #143041;
+$color2: #609ABE;
 
 $background-color: $color1;
 $text-color: $color2;
 
-$vertical-spacing: 7.5vh;
+$button-size: 10vw;
+$default-border-radius: 10px;
+$input-padding: 9px;
+$box-shadow: 0 5px rgba(0, 0, 0, .15);
 
 @font-face
 {
@@ -32,109 +35,180 @@ $vertical-spacing: 7.5vh;
 
 *
 {
-    padding: 0;
     margin: 0;
-}
-
-html, body
-{
-    height: 100%;
+    padding: 0;
 }
 
 body
 {
     background-color: $background-color;
+    color: $text-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 10vw;
-}
-
-h1
-{
-    font-size: 3rem;
-    text-transform: uppercase;
-    font-weight: 600;
+    text-align: center;
     font-family: "Montserrat", sans-serif;
-    margin-bottom: $vertical-spacing;
+    text-transform: uppercase;
+    padding: 7.5vh 0;
 }
 
-h2
+h1, h2:not(#previewtext)
 {
-    font-size: 1.25rem;
-
-    &:not(#previewtext)
-    {
-        font-weight: 500;
-        text-transform: uppercase;
-        font-family: "Montserrat", sans-serif;
-    }
+    letter-spacing: .15rem;
 }
 
-h1, h2
-{
-    letter-spacing: .1rem;
-}
-
-textarea
-{
-    flex: .5;
-    width: 20vw;
-    height: 10vh;
-}
-
-#container
+.section
 {
     width: 100%;
-    color: $text-color;
-    text-align: center;
-
-    & > .row
-    {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        margin: 2rem 0;
-
-        & > *
-        {
-            margin: 0 .5rem;
-        }
-
-        &:nth-of-type(4)
-        {
-            margin-top: $vertical-spacing;
-        }
-    }
-}
-
-#copytextarea
-{
-    flex: 1;
-}
-
-#modifiers
-{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2vh 0;
+
+    h2:not(#previewtext)
+    {
+        padding: 1.5vh 0;
+    }
+
+    #previewtext
+    {
+        width: 100%;
+        font-family: 'Minecraft Regular', sans-serif;
+        padding: 0 5vw;
+    }
+}
+
+.row
+{
+    display: flex;
+
+    .pcr-button
+    {
+        width: $button-size;
+        height: $button-size;
+        margin: 0 7.5vw;
+        border-radius: 50%;
+        box-shadow: $box-shadow;
+
+        &::before, &::after
+        {
+            border-radius: 50%;
+        }
+    }
+
+    textarea
+    {
+        width: 45em;
+        height: 8em;
+        background-color: $text-color;
+        font-family: 'Montserrat', sans-serif;
+        padding: $input-padding;
+        box-shadow: $box-shadow;
+        border: 0;
+        border-radius: $default-border-radius;
+    }
+
+    select
+    {
+        background-color: $text-color;
+        font-family: 'Montserrat', sans-serif;
+        padding: $input-padding;
+        overflow: hidden;
+        box-shadow: $box-shadow;
+        border: 0;
+        border-radius: $default-border-radius;
+
+        option
+        {
+            padding: $input-padding 20vw;
+            text-align: center;
+
+            &:not(:first-child)
+            {
+                border-top: 1px solid $background-color;
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px)
+{
+    .row
+    {
+        .pcr-button
+        {
+            width: $button-size / 1.5;
+            height: $button-size / 1.5;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px)
+{
+    h1
+    {
+        font-size: 3rem;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px)
+{
+    h1
+    {
+        font-size: 2rem;
+    }
+
+    h2
+    {
+        font-size: 1.5rem;
+    }
 
     .row
     {
-        display: flex;
-        align-items: center;
-        width: 100%;
-
-        & > *
+        .pcr-button
         {
-            margin: 0 .25rem;
+            width: $button-size / 3;
+            height: $button-size / 3;
+            margin: 0 3.75vw;
+        }
+    }
+
+    .section
+    {
+        textarea
+        {
+            width: 25em;
+            height: 8em;
+            padding: $input-padding;
+        }
+
+        select
+        {
+            padding: $input-padding;
+
+            option
+            {
+                padding: $input-padding / 1.5 13vw;
+            }
         }
     }
 }
 
-#previewtext
+// Extra large devices (large desktops, 1700px and up)
+@media (min-width: 1700px)
 {
-    font-family: "Minecraft Regular",
+    .row
+    {
+        .pcr-button
+        {
+            width: $button-size / 6;
+            height: $button-size / 6;
+            margin: 0 3.75vw;
+        }
+    }
 }

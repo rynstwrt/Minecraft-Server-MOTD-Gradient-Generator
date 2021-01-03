@@ -5,62 +5,57 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css"/>
         <link rel="stylesheet" type="text/css" href="main.min.css" />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+        <script defer src="GradientUtil.js"></script>
+        <script defer src="GradientGenerator.js"></script>
         <title>MOTD Gradient Generator</title>
     </head>
     <body>
-        <div id="container">
-            <h1>Minecraft Server MOTD Gradient Generator</h1>
+        <h1>Server MOTD<br />Gradient<br />Generator</h1>
 
+        <div class="section">
+            <h2>Colors:</h2>
             <div class="row">
-                <h2>Color 1: </h2>
-                <input id="color1" type="color" value="#FF6600" />
-                <h2 id="color1result" class='sublabel'></h2>
-            </div>
-
-            <div class="row">
-                <h2>Color 2: </h2>
-                <input id="color2" type="color" value="#FF00FF" />
-                <h2 id="color2result" class='sublabel'></h2>
-            </div>
-
-            <div class="row">
-                <h2>Text to convert: </h2>
-                <textarea id="converttext">Enter your text here!</textarea>
-            </div>
-
-            <div class="row">
-                <h2>Result: </h2>
-                <textarea id="outputtext" readonly></textarea>
-                <div id="modifiers">
-                    <div class="row">
-                        <input id="bold" type="checkbox" />
-                        <h2>Bold</h2>
-                    </div>
-                    <div class="row">
-                        <input id="italic" type="checkbox" />
-                        <h2>Italic</h2>
-                    </div>
-                    <div class="row">
-                        <input id="underlined" type="checkbox" />
-                        <h2>Underlined</h2>
-                    </div>
-                    <div class="row">
-                        <input id="useampersand" type="checkbox" />
-                        <h2>Use '&'</h2>
-                        <input id="usesection" type="checkbox" />
-                        <h2>Use '§'</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <h2>Preview: </h2>
-                <h2 id="previewtext"></h2>
+                <div id="colorpicker1"></div>
+                <div id="colorpicker2"></div>
             </div>
         </div>
 
-        <script src="main.js"></script>
+        <div class="section">
+            <h2>Input:</h2>
+            <div class="row">
+                <textarea id="inputbox">Enter your text here!</textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Settings:</h2>
+            <div class="row">
+                <select id="settings" multiple size="5">
+                    <option value="bold">Bold</option>
+                    <option value="italic">Italic</option>
+                    <option value="underlined">Underlined</option>
+                    <option id="ampersandOption" value="ampersand">Use '&'</option>
+                    <option id="sectionOption" value="section">Use '§'</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Output:</h2>
+            <div class="row">
+                <textarea id="outputbox" readonly></textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Preview:</h2>
+            <div class="row">
+                <h2 id="previewtext"></h2>
+            </div>
+        </div>
     </body>
 </html>
