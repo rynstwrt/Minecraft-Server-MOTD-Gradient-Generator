@@ -5,7 +5,7 @@ $background-color: $color1;
 $text-color: $color2;
 
 $button-size: 10vw;
-$default-border-radius: 10px;
+$border-radius: 10px;
 $input-padding: 9px;
 $box-shadow: 0 5px rgba(0, 0, 0, .15);
 
@@ -65,7 +65,7 @@ h1, h2:not(#previewtext)
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2vh 0;
+    padding: 10px 0;
 
     h2:not(#previewtext)
     {
@@ -100,14 +100,14 @@ h1, h2:not(#previewtext)
 
     textarea
     {
-        width: 45em;
+        width: 20em;
         height: 8em;
         background-color: $text-color;
         font-family: 'Montserrat', sans-serif;
         padding: $input-padding;
         box-shadow: $box-shadow;
         border: 0;
-        border-radius: $default-border-radius;
+        border-radius: $border-radius;
     }
 
     select
@@ -118,7 +118,7 @@ h1, h2:not(#previewtext)
         overflow: hidden;
         box-shadow: $box-shadow;
         border: 0;
-        border-radius: $default-border-radius;
+        border-radius: $border-radius;
 
         option
         {
@@ -151,7 +151,7 @@ h1, h2:not(#previewtext)
 {
     h1
     {
-        font-size: 3rem;
+        font-size: 2.7rem;
     }
 }
 
