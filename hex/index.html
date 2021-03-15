@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css"/>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <title>MC Hex to Chat Color Converter</title>
+</head>
+<body>
+    <div class="section">
+        <h3>Input your color here:</h3>
+        <div id="color-picker"></div>
+    </div>
+
+    <div class="section">
+        <h3>Set your preview options here:</h3>
+        <div id="settings">
+            <div class="setting"><label for="bold">Bold: </label><input id="bold" type="checkbox"></div>
+            <div class="setting"><label for="italic">Italic: </label><input id="italic" type="checkbox"></div>
+            <div class="setting"><label for="underline">Underline: </label><input id="underline" type="checkbox"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Color code:</h3>
+        <input type="text" id="output" readonly>
+    </div>
+
+    <div class="section">
+        <h3>Preview:</h3>
+        <h3 id="preview">This is what it will look like!</h3>
+    </div>
+
+    <script src="HexConverter.js"></script>
+</body>
+</html>
