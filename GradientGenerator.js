@@ -101,27 +101,27 @@ function generate()
         for (var j = 0; j < selectedOptions.length; ++j)
         {
             const selectedText = selectedOptions[j].value;
-            if (selectedText == "bold")
+            if (selectedText === "bold")
             {
                 isBold = true;
                 settings.push("§l");
             }
-            else if (selectedText == "italic")
+            else if (selectedText === "italic")
             {
                 isItalic = true;
                 settings.push("§o");
             }
-            else if (selectedText == "underlined")
+            else if (selectedText === "underlined")
             {
                 isUnderlined = true;
                 settings.push("§n");
             }
-            else if (selectedText == "ampersand")
+            else if (selectedText === "ampersand")
             {
-                sectionOption.selected = false;
+                sectionSymbolOption.selected = false;
                 useAmpersand = true;
             }
-            else if (selectedText == "section")
+            else if (selectedText === "section")
             {
                 ampersandOption.selected = false;
                 useSection = true;

@@ -58,6 +58,7 @@ h2:not(#previewtext) {
   width: 100%;
   font-family: "Minecraft Regular", sans-serif;
   padding: 0 5vw;
+  text-transform: none;
 }
 
 .row {
