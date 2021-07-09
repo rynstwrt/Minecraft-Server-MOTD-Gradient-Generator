@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Minecraft Regular";
+  src: url("minecraftfont/regular.otf");
+}
+@font-face {
+  font-family: "Minecraft Bold";
+  src: url("minecraftfont/bold.otf");
+}
+@font-face {
+  font-family: "Minecraft Italic";
+  src: url("minecraftfont/italic.otf");
+}
+@font-face {
+  font-family: "Minecraft Bold Italic";
+  src: url("minecraftfont/bolditalic.otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #143041;
+  color: #609ABE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  padding: 7.5vh 0;
+}
+
+h1, h2:not(#previewtext) {
+  letter-spacing: 0.15rem;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+.section h2:not(#previewtext) {
+  padding: 1.5vh 0;
+}
+.section #previewtext {
+  width: 100%;
+  font-family: "Minecraft Regular", sans-serif;
+  padding: 0 5vw;
+}
+
+.row {
+  display: flex;
+}
+.row .pcr-button {
+  width: 10vw;
+  height: 10vw;
+  margin: 0 7.5vw;
+  border-radius: 50%;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.15);
+}
+.row .pcr-button::before, .row .pcr-button::after {
+  border-radius: 50%;
+}
+.row textarea {
+  width: 20em;
+  height: 8em;
+  background-color: #609ABE;
+  font-family: "Montserrat", sans-serif;
+  padding: 9px;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.15);
+  border: 0;
+  border-radius: 10px;
+}
+.row select {
+  background-color: #609ABE;
+  font-family: "Montserrat", sans-serif;
+  padding: 9px;
+  overflow: hidden;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.15);
+  border: 0;
+  border-radius: 10px;
+}
+.row select option {
+  padding: 9px 20vw;
+  text-align: center;
+}
+.row select option:not(:first-child) {
+  border-top: 1px solid #143041;
+}
+
+@media (min-width: 576px) {
+  .row .pcr-button {
+    width: 6.6666666667vw;
+    height: 6.6666666667vw;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .row .pcr-button {
+    width: 3.3333333333vw;
+    height: 3.3333333333vw;
+    margin: 0 3.75vw;
+  }
+
+  .section textarea {
+    width: 25em;
+    height: 8em;
+    padding: 9px;
+  }
+  .section select {
+    padding: 9px;
+  }
+  .section select option {
+    padding: 6px 13vw;
+  }
+}
+@media (min-width: 1700px) {
+  .row .pcr-button {
+    width: 1.6666666667vw;
+    height: 1.6666666667vw;
+    margin: 0 3.75vw;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
